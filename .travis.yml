@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t cobwebfx/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run cobwebfx/docker-react yarn test -- --coverage
